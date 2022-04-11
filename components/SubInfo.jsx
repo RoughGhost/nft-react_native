@@ -1,6 +1,7 @@
-import { View, Text, Image } from "react-native";
 import React from "react";
-import { SIZES, COLORS, FONTS, SHADOWS, assets } from "../constants";
+import { View, Image, Text } from "react-native";
+
+import { SIZES, FONTS, COLORS, SHADOWS, assets } from "../constants";
 
 export const NFTTitle = ({ title, subTitle, titleSize, subTitleSize }) => {
   return (
@@ -21,7 +22,7 @@ export const NFTTitle = ({ title, subTitle, titleSize, subTitleSize }) => {
           color: COLORS.primary,
         }}
       >
-        {subTitle}
+        by {subTitle}
       </Text>
     </View>
   );
@@ -29,12 +30,7 @@ export const NFTTitle = ({ title, subTitle, titleSize, subTitleSize }) => {
 
 export const EthPrice = ({ price }) => {
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        alignItems: "center",
-      }}
-    >
+    <View style={{ flexDirection: "row", alignItems: "center" }}>
       <Image
         source={assets.eth}
         resizeMode="contain"
@@ -53,7 +49,7 @@ export const EthPrice = ({ price }) => {
   );
 };
 
-export const ImageCmp = ({ imgUrl, index }) => {
+const ImageCmp = ({ imgUrl, index }) => {
   return (
     <Image
       source={imgUrl}
@@ -86,9 +82,11 @@ export const EndDate = () => {
         paddingHorizontal: SIZES.font,
         paddingVertical: SIZES.base,
         backgroundColor: COLORS.white,
+        borderRadius: SIZES.font,
         justifyContent: "center",
         alignItems: "center",
         ...SHADOWS.light,
+        elevation: 1,
         maxWidth: "50%",
       }}
     >
@@ -120,7 +118,7 @@ export const SubInfo = () => {
       style={{
         width: "100%",
         paddingHorizontal: SIZES.font,
-        marginTop: SIZES.extraLarge,
+        marginTop: -SIZES.extraLarge,
         flexDirection: "row",
         justifyContent: "space-between",
       }}
